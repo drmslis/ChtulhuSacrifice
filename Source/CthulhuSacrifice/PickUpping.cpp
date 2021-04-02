@@ -3,6 +3,7 @@
 
 #include "PickUpping.h"
 
+#include "Inventory.h"
 
 // Sets default values for this component's properties
 UPickUpping::UPickUpping()
@@ -26,6 +27,8 @@ void UPickUpping::BeginPlay()
     GetOwner()->GetWorldTimerManager().SetTimer(UnusedHandle, this, &UPickUpping::UpdatePickUpObject, 0.1, true);
 
     Camera = Cast<UCameraComponent>(GetOwner()->GetComponentByClass(UCameraComponent::StaticClass()));
+    
+    Inventory = Cast<UInventory>(GetOwner()->GetComponentByClass(UInventory::StaticClass()));
 }
 
 
@@ -65,9 +68,10 @@ void UPickUpping::UpdatePickUpObject()
 
 void UPickUpping::PickUp()
 {
-    if(PickUpObject)
+    if(IsValid(PickUpObject))
     {
-        //TODO: add increasing pickUps here
+        if(IsValid(Inventory))
+            Inventory->AddItems(PickUpObject->ItemType, PickUpObject->ItemsCount);
 
         PickUpObject->Destroy();
     }

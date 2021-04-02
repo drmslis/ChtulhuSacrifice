@@ -6,6 +6,14 @@
 #include "GameFramework/Actor.h"
 #include "PickUpObject.generated.h"
 
+UENUM(BluePrintType)
+enum class EItemType : uint8
+{
+    CoralItem,
+    HumanItem,
+    NoteItem
+};
+
 UCLASS()
 class CTHULHUSACRIFICE_API APickUpObject : public AActor
 {
@@ -25,4 +33,11 @@ public:
 
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
     class UStaticMeshComponent* Mesh;
+
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+    EItemType ItemType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+    int ItemsCount;
 };

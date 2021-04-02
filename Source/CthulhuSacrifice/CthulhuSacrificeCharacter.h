@@ -81,6 +81,9 @@ protected:
     
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components")
 	class UPickUpping* PickUpping;
+    
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components")
+    class UInventory* Inventory;
 public:
 	UFUNCTION(BlueprintCallable)
 	void SelectTargetDebug();

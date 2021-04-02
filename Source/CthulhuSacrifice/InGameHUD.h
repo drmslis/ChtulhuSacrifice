@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/HUD.h"
 #include "PickUpObject.h"
+#include "Components/TextBlock.h"
 #include "InGameHUD.generated.h"
 
 /**
@@ -24,4 +25,7 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void ShowPickupText(bool Show);
+    
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void UpdateInventory(UInventory* Inventory);
 };
