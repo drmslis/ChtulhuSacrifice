@@ -25,7 +25,7 @@ void ACthulhuFeedProgress::BeginPlay()
 	
     
     FTimerHandle UnusedHandle;
-    GetWorldTimerManager().SetTimer(UnusedHandle, this, &ACthulhuFeedProgress::UpdateFeedLevelPerSecond, 1, true);
+    GetWorldTimerManager().SetTimer(UnusedHandle, this, &ACthulhuFeedProgress::UpdateFeedLevelPerSecond, 1, true, 0.01f);
 }
 
 // Called every frame
