@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"D:/UE4/CthulhuSacriface/.git": true,
+		"D:/UE4/CthulhuSacriface/.vscode": true,
+		"D:/UE4/CthulhuSacriface/Content": true,
+		"D:/UE4/CthulhuSacriface/DerivedDataCache": true,
+		"D:/UE4/CthulhuSacriface/Intermediate": true,
+		"D:/UE4/CthulhuSacriface/Saved": true
+	}
+}
