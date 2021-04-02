@@ -41,6 +41,9 @@ public:
     
     UPROPERTY()
     UCameraComponent* Camera;
+    
+    UPROPERTY()
+    class UInventory* Inventory;
 
     UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
     float PickUpDistance;
