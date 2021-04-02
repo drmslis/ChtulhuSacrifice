@@ -23,9 +23,15 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Actions")
     void BindEvents();
     
+    UFUNCTION(BlueprintCallable, Category = "Actions")
+    void UpdateCthulhuFeed(float CurrFeed, float MaxFeed);
+    
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void ShowPickupText(bool Show);
     
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void UpdateInventory(UInventory* Inventory);
+    
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void UpdateCthulhuFeedPercent(float Percent);
 };

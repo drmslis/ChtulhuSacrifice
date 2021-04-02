@@ -5,6 +5,7 @@
 
 #include "GameFramework/Character.h"
 #include "Kismet/GamePlayStatics.h"
+#include "CthulhuFeedProgress.h"
 #include "PickUpping.h"
 #include "Inventory.h"
 
@@ -32,4 +33,16 @@ void AInGameHUD::BindEvents()
             Inventory->InventoryChanged.AddDynamic(this, &AInGameHUD::UpdateInventory);
         }
     }
+
+    ACthulhuFeedProgress* FeedProgress = Cast<ACthulhuFeedProgress>(UGameplayStatics::GetActorOfClass(GetWorld(), ACthulhuFeedProgress::StaticClass()));
+
+    if(IsValid(FeedProgress))
+    {
+        FeedProgress->CthulhuFeedChanged.AddDynamic(this, &AInGameHUD::UpdateCthulhuFeed);
+    }
+}
+
+void AInGameHUD::UpdateCthulhuFeed(float CurrFeed, float MaxFeed)
+{
+    UpdateCthulhuFeedPercent(FMath::Clamp(CurrFeed / MaxFeed, 0.f, 1.f));
 }
