@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+
 #include "CthulhuSacrificeCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -68,5 +69,17 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+protected:
+	UPROPERTY(EditAnywhere)
+	bool bIsDebugMode = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float TargetArea;
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void SelectTargetDebug();
+
 };
 

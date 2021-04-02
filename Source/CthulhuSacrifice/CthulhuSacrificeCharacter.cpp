@@ -8,6 +8,10 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "DrawDebugHelpers.h"
+#include "Kismet/KismetSystemLibrary.h"
+
+#include "BaseEnemyCharacter.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ACthulhuSacrificeCharacter
@@ -57,6 +61,8 @@ void ACthulhuSacrificeCharacter::SetupPlayerInputComponent(class UInputComponent
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
+	//PlayerInputComponent->BindAction("LockUnlockTarget", IE_Pressed, this, &ACthulhuSacrificeCharacter::SelectTargetDebug);
+
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACthulhuSacrificeCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ACthulhuSacrificeCharacter::MoveRight);
 
@@ -76,6 +82,32 @@ void ACthulhuSacrificeCharacter::SetupPlayerInputComponent(class UInputComponent
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ACthulhuSacrificeCharacter::OnResetVR);
 }
 
+void ACthulhuSacrificeCharacter::SelectTargetDebug() 
+{
+	//UE_LOG(LogTemp, Warning, TEXT("Selecting smth"));
+	if(bIsDebugMode)
+	{
+		DrawDebugSphere(GetWorld(), GetActorLocation(), TargetArea, 30, FColor::Red, false, 2.0f);
+	}
+	
+	TEnumAsByte<EObjectTypeQuery> ChannelsToTrace = EObjectTypeQuery::ObjectTypeQuery7;
+	TArray<TEnumAsByte<EObjectTypeQuery> > ObjectsToTraceAsByte;
+	ObjectsToTraceAsByte.Add(ChannelsToTrace);
+
+	TArray<AActor*> ActorsToIgnore;
+	TArray<AActor*> AvaliableTargets;
+
+	UKismetSystemLibrary::SphereOverlapActors(GetWorld(), GetActorLocation(), TargetArea, ObjectsToTraceAsByte, GetClass(), ActorsToIgnore, AvaliableTargets);
+
+	for(AActor* TargetInRange : AvaliableTargets)
+	{
+		if(TargetInRange != nullptr) 
+		{
+			UE_LOG(LogTemp, Warning, TEXT("This: %s"), *TargetInRange->GetName());
+		}
+	}
+
+}
 
 void ACthulhuSacrificeCharacter::OnResetVR()
 {

@@ -1,0 +1,1247 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "CthulhuSacrifice Win32 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win32 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win32 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Development Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win32 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Shipping Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win32 Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Test Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win32 Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win32 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win32",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win64 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win64 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Development Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win64 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Shipping Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win64 Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Test Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Win64 Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Win64 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Win64",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice IOS Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice IOS DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Development Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice IOS Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Shipping Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice IOS Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Test Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice IOS Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice IOS Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"IOS",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Android Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Android DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Development Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Android Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Shipping Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Android Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Shipping",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Test Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrifice Android Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrifice Android Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrifice",
+				"Android",
+				"Test",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 Debug Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrificeEditor Win64 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"Debug",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrificeEditor Win64 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"DebugGame",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 Development Rebuild",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"CthulhuSacrificeEditor Win64 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		},
+		{
+			"label": "CthulhuSacrificeEditor Win64 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"CthulhuSacrificeEditor",
+				"Win64",
+				"Development",
+				"D:\\UE4\\CthulhuSacriface\\CthulhuSacrifice.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.25"
+			}
+		}
+	]
+}
