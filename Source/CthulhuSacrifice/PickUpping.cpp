@@ -53,6 +53,7 @@ void UPickUpping::UpdatePickUpObject()
         EndLocation,
         ECollisionChannel::ECC_Visibility))
     {
+        //UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
         PickUpObject = Cast<APickUpObject>(HitResult.Actor);
     }
 
