@@ -10,6 +10,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Inventory.h"
+#include "PickUpping.h"
 
 #include "BaseEnemyCharacter.h"
 
@@ -47,6 +49,9 @@ ACthulhuSacrificeCharacter::ACthulhuSacrificeCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+    PickUpping = CreateDefaultSubobject<UPickUpping>("PickUpping");
+    Inventory = CreateDefaultSubobject<UInventory>("Inventory");
+
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
@@ -60,6 +65,7 @@ void ACthulhuSacrificeCharacter::SetupPlayerInputComponent(class UInputComponent
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction("PickUpItem", IE_Released, this, &ACthulhuSacrificeCharacter::PickUpItem);
 
 	//PlayerInputComponent->BindAction("LockUnlockTarget", IE_Pressed, this, &ACthulhuSacrificeCharacter::SelectTargetDebug);
 
@@ -179,4 +185,12 @@ void ACthulhuSacrificeCharacter::MoveRight(float Value)
 		    AddMovementInput(Direction, Value);
         }
 	}
+}
+
+void ACthulhuSacrificeCharacter::PickUpItem()
+{
+    if(IsValid(PickUpping))
+    {
+        PickUpping->PickUp();
+    }
 }
