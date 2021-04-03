@@ -6,9 +6,12 @@
 #include "Components/ActorComponent.h"
 #include "Camera/CameraComponent.h"
 #include "PickUpObject.h"
+#include "QuestGiver.h"
 #include "PickUpping.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangedPickUpEvent, APickUpObject*, PickUpObject);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangedQuestGiverToTalkEvent, UQuestGiver*, QuestGiver);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestGiverTalkEvent, UQuestGiver*, QuestGiver);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CTHULHUSACRIFICE_API UPickUpping : public UActorComponent
@@ -32,12 +35,23 @@ public:
     void UpdatePickUpObject();
     UFUNCTION(BlueprintCallable, Category = "Actions")
     void PickUp();
+    UFUNCTION(BlueprintCallable, Category = "Actions")
+    bool Talk();
 
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
     APickUpObject* PickUpObject;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+    UQuestGiver* QuestGiver;
+    
     UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
     FOnChangedPickUpEvent ChangedPickUpEvent;
+    
+    UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+    FOnChangedQuestGiverToTalkEvent ChangedQuestGiverToTalkEvent;
+
+    UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+    FOnQuestGiverTalkEvent QuestGiverTalkEvent;
     
     UPROPERTY()
     UCameraComponent* Camera;

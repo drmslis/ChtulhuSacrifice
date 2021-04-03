@@ -44,6 +44,9 @@ void UPickUpping::UpdatePickUpObject()
 {
     auto OldPickUpObject = PickUpObject;
     PickUpObject = nullptr;
+    
+    auto OldQuestGiver = QuestGiver;
+    QuestGiver = nullptr;
 
     FVector StartLocation = Camera->GetComponentLocation();
     FVector Direction = Camera->GetForwardVector();
@@ -57,7 +60,17 @@ void UPickUpping::UpdatePickUpObject()
         ECollisionChannel::ECC_Visibility))
     {
         //UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
-        PickUpObject = Cast<APickUpObject>(HitResult.Actor);
+        auto CurrQuestGiver = Cast<UQuestGiver>(HitResult.Actor->GetComponentByClass(UQuestGiver::StaticClass()));
+
+        if(CurrQuestGiver)
+            QuestGiver = CurrQuestGiver;
+        else
+            PickUpObject = Cast<APickUpObject>(HitResult.Actor);
+    }
+    
+    if(QuestGiver != OldQuestGiver)
+    {
+        ChangedQuestGiverToTalkEvent.Broadcast(QuestGiver);
     }
 
     if(PickUpObject != OldPickUpObject)
@@ -68,6 +81,9 @@ void UPickUpping::UpdatePickUpObject()
 
 void UPickUpping::PickUp()
 {
+    if(Talk())
+        return;
+
     if(IsValid(PickUpObject))
     {
         if(IsValid(Inventory))
@@ -75,4 +91,32 @@ void UPickUpping::PickUp()
 
         PickUpObject->Destroy();
     }
+}
+
+bool UPickUpping::Talk()
+{
+    if(IsValid(QuestGiver) && QuestGiver->IsNextDialogue())
+    {
+        if(IsValid(Inventory))
+        {
+            if(QuestGiver->QuestIdx > 0) // Talk only if succed past quest
+            {
+                FConditional Conditional = QuestGiver->Quests[QuestGiver->QuestIdx - 1].Conditional;
+                if(Inventory->TryRemoveItems(Conditional.ItemType, Conditional.ItemsCount))
+                {
+                    // TODO: AddReward here
+                    // QuestGiver->Quests[QuestGiver->QuestIdx - 1].Reward
+                    QuestGiverTalkEvent.Broadcast(QuestGiver);
+                    return true;
+                }
+            }
+            else
+            {
+                QuestGiverTalkEvent.Broadcast(QuestGiver);
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
