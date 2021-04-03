@@ -33,9 +33,12 @@ public:
     virtual void SetPatrolToClosestPatrolLocation_Implementation() override;
     virtual AActor* FindEnemy_Implementation() override;
 
-    UPROPERTY(BlueprintReadWrite, Category = "Variables")
-    TArray<FVector> PatrolLocations;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    TArray<AActor*> PatrolPointActors;
     
-    UPROPERTY(BlueprintReadWrite, Category = "Variables")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
     int PatrolLocationIdx;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    float EnemyVisionDistance;
 };
