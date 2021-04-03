@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Patrolling.h"
 #include "BaseEnemyCharacter.generated.h"
 
 UCLASS()
-class CTHULHUSACRIFICE_API ABaseEnemyCharacter : public ACharacter
+class CTHULHUSACRIFICE_API ABaseEnemyCharacter : public ACharacter, public IPatrolling
 {
 	GENERATED_BODY()
 
@@ -25,5 +26,19 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+    
+    virtual bool IsNextPatrolLocationExist_Implementation() override;
+    virtual FVector GetNextPatrolLocation_Implementation() override;
+    virtual void IncrementPatrolLocation_Implementation() override;
+    virtual void SetPatrolToClosestPatrolLocation_Implementation() override;
+    virtual AActor* FindEnemy_Implementation() override;
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    TArray<AActor*> PatrolPointActors;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    int PatrolLocationIdx;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    float EnemyVisionDistance;
 };
