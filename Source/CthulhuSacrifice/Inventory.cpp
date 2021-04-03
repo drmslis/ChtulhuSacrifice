@@ -44,3 +44,21 @@ void UInventory::AddItems(EItemType Type, int Count)
     InventoryChanged.Broadcast(this);
 }
 
+bool UInventory::TryRemoveItems(EItemType Type, int Count)
+{
+    if(Count <= 0)
+        return true;
+    
+    int* CountArrPtr = ItemsCounts.Find(Type);
+
+    if(!CountArrPtr)
+        return false;
+
+    if(*CountArrPtr < Count)
+        return false;
+
+    *CountArrPtr = *CountArrPtr - Count;
+    
+    InventoryChanged.Broadcast(this);
+    return true;
+}

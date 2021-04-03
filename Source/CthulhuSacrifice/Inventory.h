@@ -28,6 +28,9 @@ protected:
 public:	
     UFUNCTION(BlueprintCallable, Category = "Actions")
     void AddItems(EItemType Type, int Count);
+    
+    UFUNCTION(BlueprintCallable, Category = "Actions")
+    bool TryRemoveItems(EItemType Type, int Count);
 
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
