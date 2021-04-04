@@ -196,5 +196,8 @@ void UPickUpping::ApplyReward(FReward Reward)
     {
         CthulhuFeedProgress->ChangeFeedLevel(Reward.CthulhuFeedPercent);
         CthulhuFeedProgress->ChangeMaxFeedLevel(Reward.CthulhuFeedMaxPercent);
+
+        if(Reward.LevelUp)
+            CthulhuFeedProgress->AddOneMoreMainItem();
     }
 }
