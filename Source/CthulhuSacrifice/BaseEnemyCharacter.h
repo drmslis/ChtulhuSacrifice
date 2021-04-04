@@ -32,6 +32,8 @@ public:
     virtual void IncrementPatrolLocation_Implementation() override;
     virtual void SetPatrolToClosestPatrolLocation_Implementation() override;
     virtual AActor* FindEnemy_Implementation() override;
+    virtual bool GoToPointInBattle_Implementation(AActor* Enemy) override;
+    virtual FVector GetPointInBattle_Implementation(AActor* Enemy) override;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
     TArray<AActor*> PatrolPointActors;
@@ -41,4 +43,13 @@ public:
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
     float EnemyVisionDistance;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    float EnemyMaxDistanceToAttack;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    bool CanMoveInBattle;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    bool ForceSeeUs;
 };

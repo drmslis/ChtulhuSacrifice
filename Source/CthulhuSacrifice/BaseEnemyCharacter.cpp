@@ -15,6 +15,8 @@ ABaseEnemyCharacter::ABaseEnemyCharacter()
 
     PatrolLocationIdx = 0;
     EnemyVisionDistance = 1000;
+    CanMoveInBattle = true;
+    ForceSeeUs = false;
 }
 
 // Called when the game starts or when spawned
@@ -75,6 +77,9 @@ AActor* ABaseEnemyCharacter::FindEnemy_Implementation()
 
     FVector StartLocation = GetActorLocation();
     ACharacter* myCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+
+    if(ForceSeeUs)
+        return myCharacter;
     
     //UE_LOG(LogTemp, Warning, TEXT("FindEnemy, Actors Count: %d"), Actors.Num())
     for(auto Actor : Actors)
@@ -106,4 +111,29 @@ AActor* ABaseEnemyCharacter::FindEnemy_Implementation()
         }
     }
     return nullptr;
+}
+
+bool ABaseEnemyCharacter::GoToPointInBattle_Implementation(AActor* Enemy)
+{
+    if(!IsValid(Enemy) || !CanMoveInBattle)
+        return false;
+
+    FVector StartLocation = GetActorLocation();
+    FVector EnemyLocation = Enemy->GetActorLocation();
+    float Distance = FVector::Dist(StartLocation, EnemyLocation);
+
+    return Distance > EnemyMaxDistanceToAttack * 1.2;
+}
+
+FVector ABaseEnemyCharacter::GetPointInBattle_Implementation(AActor* Enemy)
+{
+    if(!IsValid(Enemy))
+        return FVector();
+
+    FVector StartLocation = GetActorLocation();
+    FVector EnemyLocation = Enemy->GetActorLocation();
+
+    FVector DirToMe = (StartLocation - EnemyLocation).GetSafeNormal();
+
+    return EnemyLocation + DirToMe * EnemyMaxDistanceToAttack * 0.85;
 }
