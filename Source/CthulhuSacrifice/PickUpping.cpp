@@ -77,6 +77,23 @@ void UPickUpping::UpdatePickUpObject()
                 QuestGiver = CurrQuestGiver;
         }
     }
+
+    if(!QuestGiver && !PickUpObject)
+    {
+        TArray<AActor*> Actors;
+        UGameplayStatics::GetAllActorsOfClass(GetWorld(), APawn::StaticClass(), Actors);
+
+        for(auto Actor : Actors)
+        {
+            if(Actor == GetOwner())
+                continue;
+            
+            auto CurrQuestGiver = Cast<UQuestGiver>(Actor->GetComponentByClass(UQuestGiver::StaticClass()));
+
+            if(CurrQuestGiver && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < 400)
+                QuestGiver = CurrQuestGiver;
+        }
+    }
     
     if(QuestGiver != OldQuestGiver)
     {
