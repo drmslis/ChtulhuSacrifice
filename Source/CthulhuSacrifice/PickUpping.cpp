@@ -83,6 +83,7 @@ void UPickUpping::UpdatePickUpObject()
         TArray<AActor*> Actors;
         UGameplayStatics::GetAllActorsOfClass(GetWorld(), AActor::StaticClass(), Actors);
 
+        float MinDistance = 10000000000;
         for(auto Actor : Actors)
         {
             if(Actor == GetOwner())
@@ -92,18 +93,34 @@ void UPickUpping::UpdatePickUpObject()
             
             //if(CurrQuestGiver)
             //    UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
-            if(CurrQuestGiver && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < CurrQuestGiver->RadialDistanceToTalk)
-                QuestGiver = CurrQuestGiver;
+            
+            float CurrDistance = FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation());
+            if(CurrQuestGiver &&  CurrDistance < CurrQuestGiver->RadialDistanceToTalk && CurrDistance < MinDistance)
+            {
+                auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+                if(CurrPickUpObject)
+                {
+                    PickUpObject = CurrPickUpObject;
+                }
+                else
+                {
+                    QuestGiver = CurrQuestGiver;
+                }
+                MinDistance = CurrDistance; 
+            }
         }
 
-        for(auto Actor : Actors)
+        if(!QuestGiver && !PickUpObject)
         {
-            if(Actor == GetOwner())
-                continue;
+            for(auto Actor : Actors)
+            {
+                if(Actor == GetOwner())
+                    continue;
             
-            auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
-            if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < CurrPickUpObject->RadialDistanceToTake)
-                PickUpObject = CurrPickUpObject;
+                auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+                if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < CurrPickUpObject->RadialDistanceToTake)
+                    PickUpObject = CurrPickUpObject;
+            }
         }
     }
     
