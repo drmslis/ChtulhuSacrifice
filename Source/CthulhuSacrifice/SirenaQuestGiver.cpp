@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "SirenaQuestGiver.h"
@@ -29,7 +29,8 @@ USirenaQuestGiver::USirenaQuestGiver()
         Quest.Conditional.ItemsCount = 1;
         
         // Reward for this Quest
-        Quest.Reward.CthulhuFeedPercent = 0;
+        Quest.Reward.CthulhuFeedPercent = 0; // increase this part from init maximum
+        Quest.Reward.CthulhuFeedMaxPercent = 0; // increase maximum on this percent
         Quest.Reward.LevelUp = false;
 
 
@@ -43,7 +44,7 @@ USirenaQuestGiver::USirenaQuestGiver()
         // Dialogues from this NPC for this Quest
         {
             FDialougueElement Element;
-            Element.NPCText = FText::FromString(TEXT("Thanks for coral"));
+            Element.NPCText = FText::FromString(TEXT("Русский текст"));
             Element.PlayerText = FText::FromString(TEXT("No problem"));
             Quest.Dialogues.Add(Element);
         }
@@ -59,7 +60,8 @@ USirenaQuestGiver::USirenaQuestGiver()
         Quest.Conditional.ItemsCount = 2;
         
         // Reward for this Quest
-        Quest.Reward.CthulhuFeedPercent = 0;
+        Quest.Reward.CthulhuFeedPercent = 0; // increase this part from init maximum
+        Quest.Reward.CthulhuFeedMaxPercent = 0; // increase maximum on this percent
         Quest.Reward.LevelUp = false;
 
 

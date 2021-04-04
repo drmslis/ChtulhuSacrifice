@@ -37,6 +37,9 @@ public:
     void PickUp();
     UFUNCTION(BlueprintCallable, Category = "Actions")
     bool Talk();
+    
+    UFUNCTION()
+    void ApplyReward(FReward Reward);
 
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
     APickUpObject* PickUpObject;
@@ -61,4 +64,7 @@ public:
 
     UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
     float PickUpDistance;
+    
+    UPROPERTY()
+    class ACthulhuFeedProgress* CthulhuFeedProgress;
 };

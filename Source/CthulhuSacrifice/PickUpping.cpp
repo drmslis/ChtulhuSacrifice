@@ -4,6 +4,8 @@
 #include "PickUpping.h"
 
 #include "Inventory.h"
+#include "Kismet/GamePlayStatics.h"
+#include "CthulhuFeedProgress.h"
 
 // Sets default values for this component's properties
 UPickUpping::UPickUpping()
@@ -29,6 +31,8 @@ void UPickUpping::BeginPlay()
     Camera = Cast<UCameraComponent>(GetOwner()->GetComponentByClass(UCameraComponent::StaticClass()));
     
     Inventory = Cast<UInventory>(GetOwner()->GetComponentByClass(UInventory::StaticClass()));
+    
+    CthulhuFeedProgress = Cast<ACthulhuFeedProgress>(UGameplayStatics::GetActorOfClass(GetWorld(), ACthulhuFeedProgress::StaticClass()));
 }
 
 
@@ -104,8 +108,7 @@ bool UPickUpping::Talk()
                 FConditional Conditional = QuestGiver->Quests[QuestGiver->QuestIdx - 1].Conditional;
                 if(Inventory->TryRemoveItems(Conditional.ItemType, Conditional.ItemsCount))
                 {
-                    // TODO: AddReward here
-                    // QuestGiver->Quests[QuestGiver->QuestIdx - 1].Reward
+                    ApplyReward(QuestGiver->Quests[QuestGiver->QuestIdx - 1].Reward);
                     QuestGiverTalkEvent.Broadcast(QuestGiver);
                     return true;
                 }
@@ -119,4 +122,14 @@ bool UPickUpping::Talk()
     }
 
     return false;
+}
+
+void UPickUpping::ApplyReward(FReward Reward)
+{
+    // TODO: AddReward here
+    if(CthulhuFeedProgress)
+    {
+        CthulhuFeedProgress->ChangeFeedLevel(Reward.CthulhuFeedPercent);
+        CthulhuFeedProgress->ChangeMaxFeedLevel(Reward.CthulhuFeedMaxPercent);
+    }
 }
