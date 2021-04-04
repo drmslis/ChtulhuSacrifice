@@ -105,12 +105,44 @@ UCthulhuQuestGiver::UCthulhuQuestGiver()
         }
 
 
+
+
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::HumanItem;
         Quest.Conditional.ItemsCount = 1;
 
         // Reward for this Quest
         Quest.Reward.CthulhuFeedPercent = 0.2; // increase this part from init maximum
+        Quest.Reward.CthulhuFeedMaxPercent = -0.2; // increase maximum on this percent
+        Quest.Reward.LevelUp = true;
+
+
+        Quests.Add(Quest);
+    }
+
+    {
+        FQuest Quest;
+
+        // Dialogue from this NPC for this Quest
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT(".."));
+            Element.PlayerText = FText::FromString(TEXT("Мой повелитель, новая жертва уже отправилась на алтарь.\n Как я связан с русалкой, которая сидит на рифах?"));
+            Quest.Dialogues.Add(Element);
+        }
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("Она тоже хотела найти сокровища. \nТы так и не научился задавать правильные вопросы, червь. \nИди за новой жертвой и не трать моё время"));
+            Element.PlayerText = FText::FromString(TEXT(".."));
+            Quest.Dialogues.Add(Element);
+        }
+
+        // Conditional for quest finish
+        Quest.Conditional.ItemType = EItemType::HumanItem;
+        Quest.Conditional.ItemsCount = 1;
+
+        // Reward for this Quest
+        Quest.Reward.CthulhuFeedPercent = 1.0; // increase this part from init maximum
         Quest.Reward.CthulhuFeedMaxPercent = -0.2; // increase maximum on this percent
         Quest.Reward.LevelUp = true;
 
