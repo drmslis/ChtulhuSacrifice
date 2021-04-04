@@ -64,12 +64,45 @@ void UPickUpping::UpdatePickUpObject()
         ECollisionChannel::ECC_Visibility))
     {
         //UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
-        auto CurrQuestGiver = Cast<UQuestGiver>(HitResult.Actor->GetComponentByClass(UQuestGiver::StaticClass()));
-
-        if(CurrQuestGiver)
-            QuestGiver = CurrQuestGiver;
+        auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+        if(CurrPickUpObject)
+        {
+            PickUpObject = CurrPickUpObject;
+        }
         else
-            PickUpObject = Cast<APickUpObject>(HitResult.Actor);
+        {
+            auto CurrQuestGiver = Cast<UQuestGiver>(HitResult.Actor->GetComponentByClass(UQuestGiver::StaticClass()));
+
+            if(CurrQuestGiver)
+                QuestGiver = CurrQuestGiver;
+        }
+    }
+
+    if(!QuestGiver && !PickUpObject)
+    {
+        TArray<AActor*> Actors;
+        UGameplayStatics::GetAllActorsOfClass(GetWorld(), APawn::StaticClass(), Actors);
+
+        for(auto Actor : Actors)
+        {
+            if(Actor == GetOwner())
+                continue;
+            
+            auto CurrQuestGiver = Cast<UQuestGiver>(Actor->GetComponentByClass(UQuestGiver::StaticClass()));
+
+            if(CurrQuestGiver && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < 400)
+                QuestGiver = CurrQuestGiver;
+        }
+
+        for(auto Actor : Actors)
+        {
+            if(Actor == GetOwner())
+                continue;
+            
+            auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+            if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < 300)
+                PickUpObject = CurrPickUpObject;
+        }
     }
     
     if(QuestGiver != OldQuestGiver)
@@ -93,7 +126,20 @@ void UPickUpping::PickUp()
         if(IsValid(Inventory))
             Inventory->AddItems(PickUpObject->ItemType, PickUpObject->ItemsCount);
 
-        PickUpObject->Destroy();
+        UQuestGiver* CurrQuestGiver = PickUpObject->QuestGiver;
+
+        if(IsValid(CurrQuestGiver))
+        {
+            QuestGiver = CurrQuestGiver;
+            Talk();
+        }
+
+        if(IsValid(CurrQuestGiver))
+        {
+            PickUpObject->SetActorHiddenInGame(true);
+        }
+        else
+            PickUpObject->Destroy();
     }
 }
 
