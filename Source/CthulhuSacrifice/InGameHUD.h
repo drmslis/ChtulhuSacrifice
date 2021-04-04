@@ -23,7 +23,7 @@ public:
     UFUNCTION()
     void UpdateQuestGiverText(UQuestGiver* QuestGiver);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable, Category = "Actions")
     void OnQuestGiverTalk(UQuestGiver* QuestGiver);
     
     UFUNCTION(BlueprintCallable, Category = "Actions")
@@ -77,6 +77,9 @@ public:
 
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void LoadMainMenu();
+    
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void CthulhuWokeUp(bool Angry);
 
     // private fields
     UPROPERTY()

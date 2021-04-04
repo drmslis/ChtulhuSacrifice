@@ -42,5 +42,11 @@ public:
     EItemType ItemType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-    int ItemsCount;
+    int ItemsCount;    
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+    class UQuestGiver* QuestGiver;
+    
+    UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
+    float RadialDistanceToTake;
 };

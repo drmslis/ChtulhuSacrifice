@@ -13,6 +13,8 @@ APickUpObject::APickUpObject()
     Mesh = CreateDefaultSubobject<UStaticMeshComponent>("StaticMesh");
 
     Mesh->SetupAttachment(RootComponent);
+
+    RadialDistanceToTake = 400;
 }
 
 // Called when the game starts or when spawned
