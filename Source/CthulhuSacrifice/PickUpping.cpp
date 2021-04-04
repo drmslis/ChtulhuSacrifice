@@ -93,6 +93,16 @@ void UPickUpping::UpdatePickUpObject()
             if(CurrQuestGiver && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < 400)
                 QuestGiver = CurrQuestGiver;
         }
+
+        for(auto Actor : Actors)
+        {
+            if(Actor == GetOwner())
+                continue;
+            
+            auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+            if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < 300)
+                PickUpObject = CurrPickUpObject;
+        }
     }
     
     if(QuestGiver != OldQuestGiver)
