@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "PickUpping.h"
 
 #include "Inventory.h"
@@ -56,27 +53,27 @@ void UPickUpping::UpdatePickUpObject()
     FVector Direction = Camera->GetForwardVector();
     FVector EndLocation = StartLocation + Direction * PickUpDistance;
     
-    FHitResult HitResult;
-    if(GetWorld()->LineTraceSingleByChannel(
-        HitResult,
-        StartLocation,
-        EndLocation,
-        ECollisionChannel::ECC_Visibility))
-    {
-        //UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
-        auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
-        if(CurrPickUpObject)
-        {
-            PickUpObject = CurrPickUpObject;
-        }
-        else
-        {
-            auto CurrQuestGiver = Cast<UQuestGiver>(HitResult.Actor->GetComponentByClass(UQuestGiver::StaticClass()));
+    //FHitResult HitResult;
+    //if(GetWorld()->LineTraceSingleByChannel(
+    //    HitResult,
+    //    StartLocation,
+    //    EndLocation,
+    //    ECollisionChannel::ECC_Visibility))
+    //{
+    //    //UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
+    //    auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+    //    if(CurrPickUpObject)
+    //    {
+    //        PickUpObject = CurrPickUpObject;
+    //    }
+    //    else
+    //    {
+    //        auto CurrQuestGiver = Cast<UQuestGiver>(HitResult.Actor->GetComponentByClass(UQuestGiver::StaticClass()));
 
-            if(CurrQuestGiver)
-                QuestGiver = CurrQuestGiver;
-        }
-    }
+    //        if(CurrQuestGiver)
+    //            QuestGiver = CurrQuestGiver;
+    //    }
+    //}
 
     if(!QuestGiver && !PickUpObject)
     {
@@ -95,9 +92,9 @@ void UPickUpping::UpdatePickUpObject()
             //    UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
             
             float CurrDistance = FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation());
-            if(CurrQuestGiver &&  CurrDistance < CurrQuestGiver->RadialDistanceToTalk && CurrDistance < MinDistance)
+            if(CurrQuestGiver &&  CurrDistance < CurrQuestGiver->RadialDistanceToTalk && CurrDistance < MinDistance && !Actor->IsHidden())
             {
-                auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+                auto CurrPickUpObject = Cast<APickUpObject>(Actor);
                 if(CurrPickUpObject)
                 {
                     PickUpObject = CurrPickUpObject;
@@ -117,8 +114,8 @@ void UPickUpping::UpdatePickUpObject()
                 if(Actor == GetOwner())
                     continue;
             
-                auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
-                if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < CurrPickUpObject->RadialDistanceToTake)
+                auto CurrPickUpObject = Cast<APickUpObject>(Actor);
+                if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < CurrPickUpObject->RadialDistanceToTake && !Actor->IsHidden())
                     PickUpObject = CurrPickUpObject;
             }
         }
