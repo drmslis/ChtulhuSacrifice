@@ -55,6 +55,11 @@ void AInGameHUD::UpdateCthulhuFeed(float CurrFeed, float MaxFeed)
     UpdateCthulhuFeedPercent(FMath::Clamp(CurrFeed / MaxFeed, 0.f, 1.f));
 }
 
+void AInGameHUD::UpdateHP(float CurrHP, float MaxHP)
+{
+    UpdateHPPercent(FMath::Clamp(CurrHP / MaxHP, 0.f, 1.f));
+}
+
 void AInGameHUD::OnQuestGiverTalk(UQuestGiver* QuestGiver)
 {
     ShowQuestGiverToTalkText(false);
@@ -88,10 +93,26 @@ void AInGameHUD::NextQuestGiverTalkButtonClicked()
         // close dialoges HUD
         QuestGiver_C->QuestIdx++;
         ShowQuestGiverTalkWidget(false);
+
+        if(IsGameOver)
+        {
+            LoadMainMenu();
+        }
     }
     else
     {
         SetQuestGiverTalkWidgetText(Quest.Dialogues[DialogueIdx].NPCText);
         SetPlayerTalkWidgetText(Quest.Dialogues[DialogueIdx].PlayerText);
     }
+}
+
+void AInGameHUD::GameOver()
+{
+    IsGameOver = true;
+    if(!IsValid(QuestGiver_GameOver))
+    {        
+        LoadMainMenu();
+        return;
+    }
+    OnQuestGiverTalk(QuestGiver_GameOver);
 }
