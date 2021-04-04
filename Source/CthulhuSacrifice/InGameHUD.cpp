@@ -93,10 +93,26 @@ void AInGameHUD::NextQuestGiverTalkButtonClicked()
         // close dialoges HUD
         QuestGiver_C->QuestIdx++;
         ShowQuestGiverTalkWidget(false);
+
+        if(IsGameOver)
+        {
+            LoadMainMenu();
+        }
     }
     else
     {
         SetQuestGiverTalkWidgetText(Quest.Dialogues[DialogueIdx].NPCText);
         SetPlayerTalkWidgetText(Quest.Dialogues[DialogueIdx].PlayerText);
     }
+}
+
+void AInGameHUD::GameOver()
+{
+    IsGameOver = true;
+    if(!IsValid(QuestGiver_GameOver))
+    {        
+        LoadMainMenu();
+        return;
+    }
+    OnQuestGiverTalk(QuestGiver_GameOver);
 }

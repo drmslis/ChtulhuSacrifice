@@ -38,6 +38,10 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Actions")
     void NextQuestGiverTalkButtonClicked();
     
+    UFUNCTION(BlueprintCallable, Category = "Actions")
+    void GameOver();
+
+    // Implemented inside blueprints
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void ShowPickupText(bool Show);
     
@@ -71,9 +75,19 @@ public:
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void UpdateHPPercent(float Percent);
 
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void LoadMainMenu();
+
+    // private fields
     UPROPERTY()
     int DialogueIdx;
 
     UPROPERTY()
+    bool IsGameOver = false;
+    
+    UPROPERTY()
     UQuestGiver* QuestGiver_C;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    UQuestGiver* QuestGiver_GameOver;
 };
