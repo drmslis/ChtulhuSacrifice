@@ -35,4 +35,10 @@ public:
     
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Actions")
     void SetPatrolToClosestPatrolLocation();
+    
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Actions")
+    bool GoToPointInBattle(AActor* Enemy);
+    
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Actions")
+    FVector GetPointInBattle(AActor* Enemy);
 };
