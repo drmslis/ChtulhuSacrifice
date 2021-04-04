@@ -15,20 +15,20 @@ UAfterFirstPickQuestGiver::UAfterFirstPickQuestGiver()
         {
             FDialougueElement Element;
             //FString str = FString(L"Русский текстs");
-            Element.NPCText = FText::FromString(TEXT("Ты взял предмет"));
-            Element.PlayerText = FText::FromString(TEXT("Дальше"));
+            Element.NPCText = FText::FromString(TEXT("Подожди! Я видела ты нашёл медальон"));
+            Element.PlayerText = FText::FromString(TEXT("Что ты о нём знаешь? Говори немедленно!"));
             Quest.Dialogues.Add(Element);
         }
         {
             FDialougueElement Element;
-            Element.NPCText = FText::FromString(TEXT("Ты взял предмет2"));
-            Element.PlayerText = FText::FromString(TEXT("Окей"));
+            Element.NPCText = FText::FromString(TEXT("Я не могу тебе ничего рассказать, но могу помочь тебе стать сильнее.\n Возможно это также поможет тебе что-то вспомнить. Добудь мне 2 коралла"));
+            Element.PlayerText = FText::FromString(TEXT("В любом случае я узнаю всё у Повелителя.."));
             Quest.Dialogues.Add(Element);
         }
 
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::CoralItem;
-        Quest.Conditional.ItemsCount = 0;
+        Quest.Conditional.ItemsCount = 2;
         
         // Reward for this Quest
         Quest.Reward.CthulhuFeedPercent = 0; // increase this part from init maximum
