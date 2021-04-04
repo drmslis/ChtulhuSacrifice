@@ -34,7 +34,7 @@ UCthulhuQuestGiver::UCthulhuQuestGiver()
         
         // Reward for this Quest
         Quest.Reward.CthulhuFeedPercent = 0.3; // increase this part from init maximum
-        Quest.Reward.CthulhuFeedMaxPercent = -0.25; // increase maximum on this percent
+        Quest.Reward.CthulhuFeedMaxPercent = -0.2; // increase maximum on this percent
         Quest.Reward.LevelUp = true;
 
 
@@ -59,18 +59,65 @@ UCthulhuQuestGiver::UCthulhuQuestGiver()
             Quest.Dialogues.Add(Element);
         }
 
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("Ты просил правду - я сказал. ВОН и не зли меня\n Больше жертв - больше ответов"));
+            Element.PlayerText = FText::FromString(TEXT(".."));
+            Quest.Dialogues.Add(Element);
+        }
+
+
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::HumanItem;
-        Quest.Conditional.ItemsCount = 2;
+        Quest.Conditional.ItemsCount = 1;
         
         // Reward for this Quest
-        Quest.Reward.CthulhuFeedPercent = 0.3; // increase this part from init maximum
-        Quest.Reward.CthulhuFeedMaxPercent = -0.3; // increase maximum on this percent
+        Quest.Reward.CthulhuFeedPercent = 0.2; // increase this part from init maximum
+        Quest.Reward.CthulhuFeedMaxPercent = -0.2; // increase maximum on this percent
         Quest.Reward.LevelUp = true;
 
 
         Quests.Add(Quest);
     }
+
+    {
+        FQuest Quest;
+
+        // Dialogue from this NPC for this Quest
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT(".."));
+            Element.PlayerText = FText::FromString(TEXT("Мой Повелитель, я принес новую жертву. \nПо дороге назад я нашел эту карту и меня посетило видение,\n в котором я снова видел эту девушку. Что это за карта?"));
+            Quest.Dialogues.Add(Element);
+        }
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("Её купили, чтобы найти сокровища"));
+            Element.PlayerText = FText::FromString(TEXT("ой повелитель, но это не тот ответ на который я расчитывал"));
+            Quest.Dialogues.Add(Element);
+        }
+
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("Ты смеешь мне уазывать? Какой вопрос такой и ответ. Убирайся"));
+            Element.PlayerText = FText::FromString(TEXT(".."));
+            Quest.Dialogues.Add(Element);
+        }
+
+
+        // Conditional for quest finish
+        Quest.Conditional.ItemType = EItemType::HumanItem;
+        Quest.Conditional.ItemsCount = 1;
+
+        // Reward for this Quest
+        Quest.Reward.CthulhuFeedPercent = 0.2; // increase this part from init maximum
+        Quest.Reward.CthulhuFeedMaxPercent = -0.2; // increase maximum on this percent
+        Quest.Reward.LevelUp = true;
+
+
+        Quests.Add(Quest);
+    }
+
 
 }
 

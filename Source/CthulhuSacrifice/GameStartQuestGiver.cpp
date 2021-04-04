@@ -19,12 +19,6 @@ UGameStartQuestGiver::UGameStartQuestGiver()
             Element.PlayerText = FText::FromString(TEXT(".. (Нужно поднять медальон)"));
             Quest.Dialogues.Add(Element);
         }
-        {
-            FDialougueElement Element;
-            Element.NPCText = FText::FromString(TEXT("Игра началась2"));
-            Element.PlayerText = FText::FromString(TEXT("Окей"));
-            Quest.Dialogues.Add(Element);
-        }
 
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::CoralItem;
