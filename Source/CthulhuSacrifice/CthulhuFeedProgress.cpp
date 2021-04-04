@@ -27,9 +27,7 @@ void ACthulhuFeedProgress::BeginPlay()
 	Super::BeginPlay();
 	
     
-    FTimerHandle UnusedHandle;
-
-    GetWorldTimerManager().SetTimer(UnusedHandle, this, &ACthulhuFeedProgress::UpdateFeedLevelPerSecond, 1, true, 0.01f);
+    GetWorldTimerManager().SetTimer(UnusedHandle, this, &ACthulhuFeedProgress::UpdateFeedLevelPerSecond, 1, true, 0.1f);
 
     InitMaxFeedLevel = MaxFeedLevel;
 }
@@ -48,9 +46,17 @@ void ACthulhuFeedProgress::ChangeFeedLevel(float DeltaPercent)
     CthulhuFeedChanged.Broadcast(CurrFeedLevel, MaxFeedLevel);
 
     if(CurrFeedLevel < 0)
-        CthulhuWokeUp.Broadcast(true);
+        {
+            UnusedHandle.Invalidate();
+            CthulhuWokeUp.Broadcast(true);
+        }
+        
     else if(CurrFeedLevel >= MaxFeedLevel)
-        CthulhuWokeUp.Broadcast(false);
+        {
+            UnusedHandle.Invalidate();
+            CthulhuWokeUp.Broadcast(false);
+        }
+        
 }
 
 void ACthulhuFeedProgress::ChangeMaxFeedLevel(float DeltaPercent)
@@ -61,6 +67,7 @@ void ACthulhuFeedProgress::ChangeMaxFeedLevel(float DeltaPercent)
 
 void ACthulhuFeedProgress::UpdateFeedLevelPerSecond()
 {
+    if(UnusedHandle.IsValid())
     ChangeFeedLevel(-DecreaseFeedLevelPerSec);
 }
 
