@@ -22,7 +22,7 @@ UAfterFirstPickQuestGiver::UAfterFirstPickQuestGiver()
         {
             FDialougueElement Element;
             Element.NPCText = FText::FromString(TEXT("Я не могу тебе ничего рассказать, но могу помочь тебе стать сильнее.\n Возможно это также поможет тебе что-то вспомнить. Добудь мне 2 коралла"));
-            Element.PlayerText = FText::FromString(TEXT("В любом случае я узнаю всё у Повелителя.."));
+            Element.PlayerText = FText::FromString(TEXT("В любом случае я узнаю всё у Повелителя.. Идти в пещеру"));
             Quest.Dialogues.Add(Element);
         }
 
