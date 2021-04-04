@@ -20,12 +20,6 @@ UCoronaQuestGiver::UCoronaQuestGiver()
             Element.PlayerText = FText::FromString(TEXT("Дальше"));
             Quest.Dialogues.Add(Element);
         }
-        {
-            FDialougueElement Element;
-            Element.NPCText = FText::FromString(TEXT("Ты взял предмет2"));
-            Element.PlayerText = FText::FromString(TEXT("Окей"));
-            Quest.Dialogues.Add(Element);
-        }
 
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::CoralItem;
