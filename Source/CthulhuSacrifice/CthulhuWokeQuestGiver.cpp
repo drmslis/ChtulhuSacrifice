@@ -15,14 +15,8 @@ UCthulhuWokeQuestGiver::UCthulhuWokeQuestGiver()
         {
             FDialougueElement Element;
             //FString str = FString(L"Русский текстs");
-            Element.NPCText = FText::FromString(TEXT("Кхтулху проснулся"));
-            Element.PlayerText = FText::FromString(TEXT("Дальше"));
-            Quest.Dialogues.Add(Element);
-        }
-        {
-            FDialougueElement Element;
-            Element.NPCText = FText::FromString(TEXT("Кхтулху проснулся2"));
-            Element.PlayerText = FText::FromString(TEXT("Окей"));
+            Element.NPCText = FText::FromString(TEXT("Ха-ха-ха! Наконец-то я смогу позволить себе нового жреца!"));
+            Element.PlayerText = FText::FromString(TEXT("Атаковать"));
             Quest.Dialogues.Add(Element);
         }
 

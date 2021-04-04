@@ -88,6 +88,9 @@ public:
     UPROPERTY()
     bool IsGameOver = false;
     
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+    bool SapwnCthulhuNear = false;
+    
     UPROPERTY()
     UQuestGiver* QuestGiver_C;
 

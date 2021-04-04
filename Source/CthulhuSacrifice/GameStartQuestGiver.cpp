@@ -15,14 +15,8 @@ UGameStartQuestGiver::UGameStartQuestGiver()
         {
             FDialougueElement Element;
             //FString str = FString(L"Русский текстs");
-            Element.NPCText = FText::FromString(TEXT("Игра началась"));
-            Element.PlayerText = FText::FromString(TEXT("Дальше"));
-            Quest.Dialogues.Add(Element);
-        }
-        {
-            FDialougueElement Element;
-            Element.NPCText = FText::FromString(TEXT("Игра началась2"));
-            Element.PlayerText = FText::FromString(TEXT("Окей"));
+            Element.NPCText = FText::FromString(TEXT("Время пришло"));
+            Element.PlayerText = FText::FromString(TEXT(".. (Нужно поднять медальон)"));
             Quest.Dialogues.Add(Element);
         }
 
