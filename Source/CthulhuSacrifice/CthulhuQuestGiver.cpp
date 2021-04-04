@@ -12,8 +12,19 @@ UCthulhuQuestGiver::UCthulhuQuestGiver()
         FQuest Quest;
         
         // Dialogue from this NPC for this Quest
-        Quest.Dialogues.Add(FText::FromString(TEXT("I AM CHTULHU\nWUHAHAHA")));
-        Quest.Dialogues.Add(FText::FromString(TEXT("GIVE ME CORALL\nNOW!")));
+        // Dialogues from this NPC for this Quest
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("I AM CHTULHU\nWUHAHAHA"));
+            Element.PlayerText = FText::FromString(TEXT("Wakeup!"));
+            Quest.Dialogues.Add(Element);
+        }
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("GIVE ME CORALL\nNOW!"));
+            Element.PlayerText = FText::FromString(TEXT("Will do it ASAP"));
+            Quest.Dialogues.Add(Element);
+        }
 
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::CoralItem;
@@ -32,8 +43,18 @@ UCthulhuQuestGiver::UCthulhuQuestGiver()
         FQuest Quest;
         
         // Dialogue from this NPC for this Quest
-        Quest.Dialogues.Add(FText::FromString(TEXT("KILL 2 HUMANS")));
-        Quest.Dialogues.Add(FText::FromString(TEXT("GIVE ME THEIR BLOOD TO FEED\nNOW!")));
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("KILL 2 HUMANS"));
+            Element.PlayerText = FText::FromString(TEXT("Serve you with pleasure"));
+            Quest.Dialogues.Add(Element);
+        }
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("GIVE ME THEIR BLOOD TO FEED\nNOW!"));
+            Element.PlayerText = FText::FromString(TEXT("ok"));
+            Quest.Dialogues.Add(Element);
+        }
 
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::HumanItem;

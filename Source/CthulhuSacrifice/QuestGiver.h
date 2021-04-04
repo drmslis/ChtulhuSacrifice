@@ -19,6 +19,17 @@ struct FReward
 };
 
 USTRUCT(BlueprintType)
+struct FDialougueElement
+{       
+	GENERATED_BODY() 
+    UPROPERTY()
+    FText NPCText;
+    
+    UPROPERTY()
+    FText PlayerText;
+};
+
+USTRUCT(BlueprintType)
 struct FConditional
 {    
 	GENERATED_BODY()
@@ -35,7 +46,7 @@ struct FQuest
     GENERATED_BODY()
 
     UPROPERTY()
-    TArray<FText> Dialogues;
+    TArray<FDialougueElement> Dialogues;
 
     UPROPERTY()
     FConditional Conditional;

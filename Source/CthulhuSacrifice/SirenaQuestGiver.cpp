@@ -10,9 +10,19 @@ USirenaQuestGiver::USirenaQuestGiver()
     {
         FQuest Quest;
         
-        // Dialogue from this NPC for this Quest
-        Quest.Dialogues.Add(FText::FromString(TEXT("I am Sirena\nHello")));
-        Quest.Dialogues.Add(FText::FromString(TEXT("Give me Corall")));
+        // Dialogues from this NPC for this Quest
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("I am Sirena\nHello"));
+            Element.PlayerText = FText::FromString(TEXT("Hello Sirena"));
+            Quest.Dialogues.Add(Element);
+        }
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("Give me Corall"));
+            Element.PlayerText = FText::FromString(TEXT("Okay, no problem"));
+            Quest.Dialogues.Add(Element);
+        }
 
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::CoralItem;
@@ -30,9 +40,19 @@ USirenaQuestGiver::USirenaQuestGiver()
     {
         FQuest Quest;
         
-        // Dialogue from this NPC for this Quest
-        Quest.Dialogues.Add(FText::FromString(TEXT("Thanks for coral.")));
-        Quest.Dialogues.Add(FText::FromString(TEXT("Give another two")));
+        // Dialogues from this NPC for this Quest
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("Thanks for coral"));
+            Element.PlayerText = FText::FromString(TEXT("No problem"));
+            Quest.Dialogues.Add(Element);
+        }
+        {
+            FDialougueElement Element;
+            Element.NPCText = FText::FromString(TEXT("Give another two"));
+            Element.PlayerText = FText::FromString(TEXT("Are you kidding me?\n Okay"));
+            Quest.Dialogues.Add(Element);
+        }
 
         // Conditional for quest finish
         Quest.Conditional.ItemType = EItemType::CoralItem;

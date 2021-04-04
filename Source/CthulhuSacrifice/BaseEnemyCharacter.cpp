@@ -76,7 +76,7 @@ AActor* ABaseEnemyCharacter::FindEnemy_Implementation()
     FVector StartLocation = GetActorLocation();
     ACharacter* myCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
     
-    UE_LOG(LogTemp, Warning, TEXT("FindEnemy, Actors Count: %d"), Actors.Num())
+    //UE_LOG(LogTemp, Warning, TEXT("FindEnemy, Actors Count: %d"), Actors.Num())
     for(auto Actor : Actors)
     {
         if(Actor == this)
@@ -100,7 +100,7 @@ AActor* ABaseEnemyCharacter::FindEnemy_Implementation()
 
         if(!anyFound)
         {
-            UE_LOG(LogTemp, Warning, TEXT("FindEnemy %s"), *Actor->GetName())
+            //UE_LOG(LogTemp, Warning, TEXT("FindEnemy %s"), *Actor->GetName())
             if(Actor == myCharacter)    //TODO: check other variants, not only character. Include different teams
                 return Actor;
         }

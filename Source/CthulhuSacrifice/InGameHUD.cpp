@@ -16,6 +16,7 @@ void AInGameHUD::UpdatePickupText(APickUpObject* PickUpObject)
 
 void AInGameHUD::UpdateQuestGiverText(UQuestGiver* QuestGiver)
 {
+    //UE_LOG(LogTemp, Warning, TEXT("UpdateQuestGiverText: %s"), IsValid(QuestGiver) ? TEXT("TRUE") : TEXT("FALSE"))
     ShowQuestGiverToTalkText(IsValid(QuestGiver));
 }
 
@@ -65,7 +66,8 @@ void AInGameHUD::OnQuestGiverTalk(UQuestGiver* QuestGiver)
         // open dialoges HUD
 
         ShowQuestGiverTalkWidget(true);
-        SetQuestGiverTalkWidgetText(Quest.Dialogues[DialogueIdx]);
+        SetQuestGiverTalkWidgetText(Quest.Dialogues[DialogueIdx].NPCText);
+        SetPlayerTalkWidgetText(Quest.Dialogues[DialogueIdx].PlayerText);
     }
     else
     {
@@ -86,6 +88,7 @@ void AInGameHUD::NextQuestGiverTalkButtonClicked()
     }
     else
     {
-        SetQuestGiverTalkWidgetText(Quest.Dialogues[DialogueIdx]);
+        SetQuestGiverTalkWidgetText(Quest.Dialogues[DialogueIdx].NPCText);
+        SetPlayerTalkWidgetText(Quest.Dialogues[DialogueIdx].PlayerText);
     }
 }

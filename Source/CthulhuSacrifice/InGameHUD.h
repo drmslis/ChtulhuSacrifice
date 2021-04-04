@@ -52,6 +52,9 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void SetQuestGiverTalkWidgetText(const FText& Text);
+    
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void SetPlayerTalkWidgetText(const FText& Text);
 
     UPROPERTY()
     int DialogueIdx;
