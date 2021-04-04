@@ -16,6 +16,9 @@ ACthulhuFeedProgress::ACthulhuFeedProgress()
     DecreaseFeedLevelPerKill = 0; // TODO: Implement decreasing
     IncreaseFeedLevelPerQuestDefault = 0.07f; // TODO: Implement quest
     DecreaseFeedLevelMaxPerQuestDefault = 0.1f;
+
+    CurrMainItemToCallCthulhu = 0;
+    MainItemToCallCthulhu = 3;
 }
 
 // Called when the game starts or when spawned
@@ -59,5 +62,12 @@ void ACthulhuFeedProgress::ChangeMaxFeedLevel(float DeltaPercent)
 void ACthulhuFeedProgress::UpdateFeedLevelPerSecond()
 {
     ChangeFeedLevel(-DecreaseFeedLevelPerSec);
+}
+
+void ACthulhuFeedProgress::AddOneMoreMainItem()
+{
+    CurrMainItemToCallCthulhu++;
+    if(CurrMainItemToCallCthulhu >= MainItemToCallCthulhu)
+        ChangeFeedLevel(-1);
 }
 
