@@ -14,7 +14,8 @@ ABaseEnemyCharacter::ABaseEnemyCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
     PatrolLocationIdx = 0;
-    EnemyVisionDistance = 1000;
+    EnemyVisionDistance = 1100;
+    EnemyMaxDistanceToAttack = 600;
     CanMoveInBattle = true;
     ForceSeeUs = false;
 }
