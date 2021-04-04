@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "CthulhuQuestGiver.h"
@@ -15,15 +15,17 @@ UCthulhuQuestGiver::UCthulhuQuestGiver()
         // Dialogues from this NPC for this Quest
         {
             FDialougueElement Element;
-            Element.NPCText = FText::FromString(TEXT("I AM CHTULHU\nWUHAHAHA"));
+            //FString m = TEXT("你");
+            //FString str = FString(L"Русский текстs");
+            Element.NPCText = FText::FromString(TEXT("Русский текстs"));
             Element.PlayerText = FText::FromString(TEXT("Wakeup!"));
             Quest.Dialogues.Add(Element);
         }
         {
-            FDialougueElement Element;
-            Element.NPCText = FText::FromString(TEXT("GIVE ME CORALL\nNOW!"));
-            Element.PlayerText = FText::FromString(TEXT("Will do it ASAP"));
-            Quest.Dialogues.Add(Element);
+            //FDialougueElement Element;
+            //Element.NPCText = FText::FromString(TEXT("Рус ME CORALL\nNOW!"));
+            //Element.PlayerText = FText::FromString(TEXT("Will do it ASAP"));
+            //Quest.Dialogues.Add(Element);
         }
 
         // Conditional for quest finish
@@ -31,7 +33,8 @@ UCthulhuQuestGiver::UCthulhuQuestGiver()
         Quest.Conditional.ItemsCount = 1;
         
         // Reward for this Quest
-        Quest.Reward.CthulhuFeedPercent = 20;
+        Quest.Reward.CthulhuFeedPercent = 0.1; // increase this part from init maximum
+        Quest.Reward.CthulhuFeedMaxPercent = -0.2; // increase maximum on this percent
         Quest.Reward.LevelUp = true;
 
 
@@ -61,7 +64,8 @@ UCthulhuQuestGiver::UCthulhuQuestGiver()
         Quest.Conditional.ItemsCount = 2;
         
         // Reward for this Quest
-        Quest.Reward.CthulhuFeedPercent = 30;
+        Quest.Reward.CthulhuFeedPercent = 0.3; // increase this part from init maximum
+        Quest.Reward.CthulhuFeedMaxPercent = -0.3; // increase maximum on this percent
         Quest.Reward.LevelUp = true;
 
 

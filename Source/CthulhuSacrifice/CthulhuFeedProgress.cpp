@@ -28,6 +28,7 @@ void ACthulhuFeedProgress::BeginPlay()
 
     GetWorldTimerManager().SetTimer(UnusedHandle, this, &ACthulhuFeedProgress::UpdateFeedLevelPerSecond, 1, true, 0.01f);
 
+    InitMaxFeedLevel = MaxFeedLevel;
 }
 
 // Called every frame
@@ -39,7 +40,7 @@ void ACthulhuFeedProgress::Tick(float DeltaTime)
 
 void ACthulhuFeedProgress::ChangeFeedLevel(float DeltaPercent)
 {
-    CurrFeedLevel += MaxFeedLevel * DeltaPercent;
+    CurrFeedLevel += InitMaxFeedLevel * DeltaPercent;
 
     CthulhuFeedChanged.Broadcast(CurrFeedLevel, MaxFeedLevel);
 
@@ -52,7 +53,7 @@ void ACthulhuFeedProgress::ChangeFeedLevel(float DeltaPercent)
 void ACthulhuFeedProgress::ChangeMaxFeedLevel(float DeltaPercent)
 {
     CurrFeedLevel += CurrFeedLevel * DeltaPercent;
-    MaxFeedLevel += MaxFeedLevel * DeltaPercent;
+    MaxFeedLevel += InitMaxFeedLevel * DeltaPercent;
 }
 
 void ACthulhuFeedProgress::UpdateFeedLevelPerSecond()

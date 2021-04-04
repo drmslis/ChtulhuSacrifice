@@ -37,6 +37,9 @@ public:
     void UpdateFeedLevelPerSecond();
     
     UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
+    float InitMaxFeedLevel;
+
+    UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
     float MaxFeedLevel;
     
     UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
@@ -58,5 +61,6 @@ public:
     FOnCthulhuWokeUp CthulhuWokeUp;    
     
     UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
-    FOnCthulhuFeedChanged CthulhuFeedChanged;    
+    FOnCthulhuFeedChanged CthulhuFeedChanged;
+    
 };

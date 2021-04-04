@@ -17,6 +17,8 @@ struct FReward
     
     UPROPERTY()
     float CthulhuFeedPercent;
+    UPROPERTY()
+    float CthulhuFeedMaxPercent;
 };
 
 USTRUCT(BlueprintType)
