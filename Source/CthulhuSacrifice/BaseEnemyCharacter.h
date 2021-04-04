@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Patrolling.h"
+#include "PickUpObject.h"
 #include "BaseEnemyCharacter.generated.h"
 
 UCLASS()
@@ -26,6 +27,10 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+    
+    UFUNCTION(BlueprintCallable, Category = "Actions")
+    void Die();
     
     virtual bool IsNextPatrolLocationExist_Implementation() override;
     virtual FVector GetNextPatrolLocation_Implementation() override;
@@ -52,4 +57,10 @@ public:
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
     bool ForceSeeUs;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+    EItemType ItemType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+    int ItemsCount;
 };
