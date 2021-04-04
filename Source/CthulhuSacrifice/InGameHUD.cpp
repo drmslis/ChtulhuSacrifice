@@ -47,6 +47,7 @@ void AInGameHUD::BindEvents()
     if(IsValid(FeedProgress))
     {
         FeedProgress->CthulhuFeedChanged.AddDynamic(this, &AInGameHUD::UpdateCthulhuFeed);
+        FeedProgress->CthulhuWokeUp.AddDynamic(this, &AInGameHUD::CthulhuWokeUp);
     }
 }
 

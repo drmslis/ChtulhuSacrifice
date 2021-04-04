@@ -36,6 +36,9 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Actions")
     void UpdateFeedLevelPerSecond();
     
+    UFUNCTION(BlueprintCallable, Category = "Actions")
+    void AddOneMoreMainItem();
+    
     UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
     float InitMaxFeedLevel;
 
@@ -62,5 +65,11 @@ public:
     
     UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
     FOnCthulhuFeedChanged CthulhuFeedChanged;
+
     
+    UPROPERTY()
+    int CurrMainItemToCallCthulhu;
+
+    UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
+    int MainItemToCallCthulhu;    
 };

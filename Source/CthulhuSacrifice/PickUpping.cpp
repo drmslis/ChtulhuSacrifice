@@ -55,7 +55,7 @@ void UPickUpping::UpdatePickUpObject()
     FVector StartLocation = Camera->GetComponentLocation();
     FVector Direction = Camera->GetForwardVector();
     FVector EndLocation = StartLocation + Direction * PickUpDistance;
-
+    
     FHitResult HitResult;
     if(GetWorld()->LineTraceSingleByChannel(
         HitResult,
@@ -64,12 +64,64 @@ void UPickUpping::UpdatePickUpObject()
         ECollisionChannel::ECC_Visibility))
     {
         //UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
-        auto CurrQuestGiver = Cast<UQuestGiver>(HitResult.Actor->GetComponentByClass(UQuestGiver::StaticClass()));
-
-        if(CurrQuestGiver)
-            QuestGiver = CurrQuestGiver;
+        auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+        if(CurrPickUpObject)
+        {
+            PickUpObject = CurrPickUpObject;
+        }
         else
-            PickUpObject = Cast<APickUpObject>(HitResult.Actor);
+        {
+            auto CurrQuestGiver = Cast<UQuestGiver>(HitResult.Actor->GetComponentByClass(UQuestGiver::StaticClass()));
+
+            if(CurrQuestGiver)
+                QuestGiver = CurrQuestGiver;
+        }
+    }
+
+    if(!QuestGiver && !PickUpObject)
+    {
+        TArray<AActor*> Actors;
+        UGameplayStatics::GetAllActorsOfClass(GetWorld(), AActor::StaticClass(), Actors);
+
+        float MinDistance = 10000000000;
+        for(auto Actor : Actors)
+        {
+            if(Actor == GetOwner())
+                continue;
+            
+            auto CurrQuestGiver = Cast<UQuestGiver>(Actor->GetComponentByClass(UQuestGiver::StaticClass()));
+            
+            //if(CurrQuestGiver)
+            //    UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
+            
+            float CurrDistance = FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation());
+            if(CurrQuestGiver &&  CurrDistance < CurrQuestGiver->RadialDistanceToTalk && CurrDistance < MinDistance)
+            {
+                auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+                if(CurrPickUpObject)
+                {
+                    PickUpObject = CurrPickUpObject;
+                }
+                else
+                {
+                    QuestGiver = CurrQuestGiver;
+                }
+                MinDistance = CurrDistance; 
+            }
+        }
+
+        if(!QuestGiver && !PickUpObject)
+        {
+            for(auto Actor : Actors)
+            {
+                if(Actor == GetOwner())
+                    continue;
+            
+                auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
+                if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < CurrPickUpObject->RadialDistanceToTake)
+                    PickUpObject = CurrPickUpObject;
+            }
+        }
     }
     
     if(QuestGiver != OldQuestGiver)
@@ -93,7 +145,20 @@ void UPickUpping::PickUp()
         if(IsValid(Inventory))
             Inventory->AddItems(PickUpObject->ItemType, PickUpObject->ItemsCount);
 
-        PickUpObject->Destroy();
+        UQuestGiver* CurrQuestGiver = PickUpObject->QuestGiver;
+
+        if(IsValid(CurrQuestGiver))
+        {
+            QuestGiver = CurrQuestGiver;
+            Talk();
+        }
+
+        if(IsValid(CurrQuestGiver))
+        {
+            PickUpObject->SetActorHiddenInGame(true);
+        }
+        else
+            PickUpObject->Destroy();
     }
 }
 
@@ -131,5 +196,8 @@ void UPickUpping::ApplyReward(FReward Reward)
     {
         CthulhuFeedProgress->ChangeFeedLevel(Reward.CthulhuFeedPercent);
         CthulhuFeedProgress->ChangeMaxFeedLevel(Reward.CthulhuFeedMaxPercent);
+
+        if(Reward.LevelUp)
+            CthulhuFeedProgress->AddOneMoreMainItem();
     }
 }
