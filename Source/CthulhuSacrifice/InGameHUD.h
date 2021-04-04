@@ -23,7 +23,7 @@ public:
     UFUNCTION()
     void UpdateQuestGiverText(UQuestGiver* QuestGiver);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable, Category = "Actions")
     void OnQuestGiverTalk(UQuestGiver* QuestGiver);
     
     UFUNCTION(BlueprintCallable, Category = "Actions")
