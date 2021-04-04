@@ -72,4 +72,6 @@ public:
 
     UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
     int MainItemToCallCthulhu;    
+
+    FTimerHandle UnusedHandle; 
 };
