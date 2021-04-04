@@ -5,6 +5,7 @@
 
 #include "Math/NumericLimits.h"
 #include "Kismet/GamePlayStatics.h"
+#include "Inventory.h"
 #include "GameFramework/PhysicsVolume.h"
 
 // Sets default values
@@ -18,6 +19,8 @@ ABaseEnemyCharacter::ABaseEnemyCharacter()
     EnemyMaxDistanceToAttack = 600;
     CanMoveInBattle = true;
     ForceSeeUs = false;
+    ItemType = EItemType::HumanItem;
+    ItemsCount = 1;
 }
 
 // Called when the game starts or when spawned
@@ -39,6 +42,23 @@ void ABaseEnemyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ABaseEnemyCharacter::Die()
+{
+    ACharacter* myCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+
+    if(!IsValid(myCharacter))
+        return;
+    
+    UInventory* Inventory = Cast<UInventory>(myCharacter->GetComponentByClass(UInventory::StaticClass()));
+    
+    if(IsValid(Inventory))
+    {
+        Inventory->AddItems(ItemType, ItemsCount);
+    }
+
+    Destroy();
 }
 
 bool ABaseEnemyCharacter::IsNextPatrolLocationExist_Implementation()
