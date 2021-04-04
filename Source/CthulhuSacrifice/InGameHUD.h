@@ -77,6 +77,9 @@ public:
 
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void LoadMainMenu();
+    
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void CthulhuWokeUp(bool Angry);
 
     // private fields
     UPROPERTY()
