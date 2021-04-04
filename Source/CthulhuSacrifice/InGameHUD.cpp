@@ -55,6 +55,11 @@ void AInGameHUD::UpdateCthulhuFeed(float CurrFeed, float MaxFeed)
     UpdateCthulhuFeedPercent(FMath::Clamp(CurrFeed / MaxFeed, 0.f, 1.f));
 }
 
+void AInGameHUD::UpdateHP(float CurrHP, float MaxHP)
+{
+    UpdateHPPercent(FMath::Clamp(CurrHP / MaxHP, 0.f, 1.f));
+}
+
 void AInGameHUD::OnQuestGiverTalk(UQuestGiver* QuestGiver)
 {
     ShowQuestGiverToTalkText(false);

@@ -31,6 +31,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Category = "Actions")
     void UpdateCthulhuFeed(float CurrFeed, float MaxFeed);
+
+    UFUNCTION(BlueprintCallable, Category = "Actions")
+    void UpdateHP(float CurrHP, float MaxHP);
     
     UFUNCTION(BlueprintCallable, Category = "Actions")
     void NextQuestGiverTalkButtonClicked();
@@ -64,6 +67,9 @@ public:
 
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void SetQuestNPCIcon(UTexture2D* Image);
+    
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void UpdateHPPercent(float Percent);
 
     UPROPERTY()
     int DialogueIdx;
