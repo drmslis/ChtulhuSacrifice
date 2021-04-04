@@ -46,4 +46,7 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
     class UQuestGiver* QuestGiver;
+    
+    UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
+    float RadialDistanceToTake;
 };
