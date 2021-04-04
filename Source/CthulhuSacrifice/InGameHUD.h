@@ -55,6 +55,15 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
     void SetPlayerTalkWidgetText(const FText& Text);
+    
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void SetQuestMainImage(UTexture2D* Image);
+    
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void SetQuestPlayerIcon(UTexture2D* Image);
+
+    UFUNCTION(BlueprintImplementableEvent, Category = "Actions")
+    void SetQuestNPCIcon(UTexture2D* Image);
 
     UPROPERTY()
     int DialogueIdx;

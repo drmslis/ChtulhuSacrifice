@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable)
 class CTHULHUSACRIFICE_API UCthulhuQuestGiver : public UQuestGiver
 {
 	GENERATED_BODY()

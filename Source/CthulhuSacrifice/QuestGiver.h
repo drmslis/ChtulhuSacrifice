@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "PickUpObject.h"
+#include "Engine/Texture2D.h"
 #include "QuestGiver.generated.h"
 
 USTRUCT(BlueprintType)
@@ -55,7 +56,7 @@ struct FQuest
     FReward Reward;
 };
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( Blueprintable)
 class CTHULHUSACRIFICE_API UQuestGiver : public UActorComponent
 {
 	GENERATED_BODY()
@@ -83,4 +84,13 @@ public:
     
     UPROPERTY()
     TArray<FQuest> Quests;
+    
+    UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
+    UTexture2D* PlayerIcon;
+    
+    UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
+    UTexture2D* NPCIcon;
+    
+    UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
+    UTexture2D* MainImage;
 };

@@ -68,6 +68,9 @@ void AInGameHUD::OnQuestGiverTalk(UQuestGiver* QuestGiver)
         ShowQuestGiverTalkWidget(true);
         SetQuestGiverTalkWidgetText(Quest.Dialogues[DialogueIdx].NPCText);
         SetPlayerTalkWidgetText(Quest.Dialogues[DialogueIdx].PlayerText);
+        SetQuestMainImage(QuestGiver->MainImage);
+        SetQuestPlayerIcon(QuestGiver->PlayerIcon);
+        SetQuestNPCIcon(QuestGiver->NPCIcon);
     }
     else
     {
