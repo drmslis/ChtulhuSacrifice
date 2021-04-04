@@ -11,6 +11,7 @@ UQuestGiver::UQuestGiver()
 	PrimaryComponentTick.bCanEverTick = true;
     
     QuestIdx = 0;
+    RadialDistanceToTalk = 700;
 	// ...
 }
 

@@ -55,7 +55,7 @@ void UPickUpping::UpdatePickUpObject()
     FVector StartLocation = Camera->GetComponentLocation();
     FVector Direction = Camera->GetForwardVector();
     FVector EndLocation = StartLocation + Direction * PickUpDistance;
-
+    
     FHitResult HitResult;
     if(GetWorld()->LineTraceSingleByChannel(
         HitResult,
@@ -81,7 +81,7 @@ void UPickUpping::UpdatePickUpObject()
     if(!QuestGiver && !PickUpObject)
     {
         TArray<AActor*> Actors;
-        UGameplayStatics::GetAllActorsOfClass(GetWorld(), APawn::StaticClass(), Actors);
+        UGameplayStatics::GetAllActorsOfClass(GetWorld(), AActor::StaticClass(), Actors);
 
         for(auto Actor : Actors)
         {
@@ -89,8 +89,10 @@ void UPickUpping::UpdatePickUpObject()
                 continue;
             
             auto CurrQuestGiver = Cast<UQuestGiver>(Actor->GetComponentByClass(UQuestGiver::StaticClass()));
-
-            if(CurrQuestGiver && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < 400)
+            
+            //if(CurrQuestGiver)
+            //    UE_LOG(LogTemp, Warning, TEXT("Hit %s"), *HitResult.Actor->GetName())
+            if(CurrQuestGiver && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < CurrQuestGiver->RadialDistanceToTalk)
                 QuestGiver = CurrQuestGiver;
         }
 
@@ -100,7 +102,7 @@ void UPickUpping::UpdatePickUpObject()
                 continue;
             
             auto CurrPickUpObject = Cast<APickUpObject>(HitResult.Actor);
-            if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < 300)
+            if(CurrPickUpObject && FVector::Dist(Actor->GetActorLocation(), GetOwner()->GetActorLocation()) < CurrPickUpObject->RadialDistanceToTake)
                 PickUpObject = CurrPickUpObject;
         }
     }

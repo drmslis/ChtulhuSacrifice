@@ -88,6 +88,9 @@ public:
     TArray<FQuest> Quests;
     
     UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
+    float RadialDistanceToTalk;
+    
+    UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
     UTexture2D* PlayerIcon;
     
     UPROPERTY(BluePrintReadWrite, EditAnywhere, Category = "Variables")
