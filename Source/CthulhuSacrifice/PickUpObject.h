@@ -11,7 +11,10 @@ enum class EItemType : uint8
 {
     CoralItem,
     HumanItem,
-    SharkItem
+    SharkItem,
+    AngryPlantItem,
+    HenchManItem,
+    QuestCountItem
 };
 
 UCLASS()
