@@ -27,7 +27,7 @@ void ACthulhuFeedProgress::BeginPlay()
 	Super::BeginPlay();
 	
     
-    GetWorldTimerManager().SetTimer(UnusedHandle, this, &ACthulhuFeedProgress::UpdateFeedLevelPerSecond, 1, true, 0.1f);
+    GetWorldTimerManager().SetTimer(UnusedHandle, this, &ACthulhuFeedProgress::UpdateFeedLevelPerSecond, 1, true, 0.01f);
 
     InitMaxFeedLevel = MaxFeedLevel;
 }
